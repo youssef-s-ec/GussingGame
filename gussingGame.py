@@ -1,12 +1,20 @@
 if __name__ == '__main__':
 
-    secret_word = "sitges"
+    secret_word = ["sitges", "play", "fly", "trial"]
     guess = ""
     guess_count = 0
     guess_limit = 3
     out_fo_guesses = False
 
-    while guess != secret_word:
-        guess = input("enter guess: ")
+    while guess not in secret_word and not out_fo_guesses:
+        if guess_count < guess_limit:
+            guess = input("enter guess: ").lower()
+            guess_count += 1
 
-    print(" You win.")
+        else:
+            out_fo_guesses = True
+
+    if out_fo_guesses:
+        print(" you lose out of gusses")
+    else:
+        print(" You win.")
